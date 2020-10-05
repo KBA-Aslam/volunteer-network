@@ -1,0 +1,21 @@
+.regi-form{
+    margin:30px 100px;
+}
+.regi-form input {
+    display: block;
+    margin-top: 30px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 300px;
+}
+.error{
+    color: red;
+}
+.form-box{
+    background-color: white;
+    border-radius: 10px;
+    width: 400px;
+    margin-left: 35%;
+    margin-top: 60px;
+}
