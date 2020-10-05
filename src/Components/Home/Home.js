@@ -7,7 +7,7 @@ function Home() {;
     const [works, setWorks] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:4200/services')
+        fetch('https://volunteer-network-kba.herokuapp.com/services')
         .then(res => res.json())
         .then(data => setWorks(data))
     }, [])

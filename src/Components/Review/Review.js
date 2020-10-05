@@ -10,7 +10,7 @@ function Review() {
     const history = useHistory();
 
     const review=()=>{
-        fetch(`https://localhost:4200/review?email=${loggedInUser.email}`, {
+        fetch(`https://volunteer-network-kba.herokuapp.com/review?email=${loggedInUser.email}`, {
             method: 'GET'
         })
             .then(res => res.json())
@@ -23,7 +23,7 @@ function Review() {
         review();
     }, [])
     const deletework = (id) => {
-        fetch(`https://localhost:4200/delete/${id}`, {
+        fetch(`https://volunteer-network-kba.herokuapp.com/delete/${id}`, {
             method: 'DELETE',
         })
             .then(result => {

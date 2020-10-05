@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../logos/logo'
-import plus from '../../logos/plus'
+import logo from './../../logos/logo.png'
+import plus from '../../logos/plus.png'
 const Admin = () => {
     const [students, setStudent] = useState([])
     const loadAllMember = () => {
-        fetch('http://localhost:4200/students')
+        fetch('https://volunteer-network-kba.herokuapp.com/students')
             .then(response => response.json())
             .then(data => {
                 if (data.length > 0) {
@@ -18,7 +18,7 @@ const Admin = () => {
     }, [])
 
     const deleteItem = (id) => {
-        fetch(`https://localhost:4200/delete/${id}`, {
+        fetch(`https://volunteer-network-kba.herokuapp.com/delete/${id}`, {
             method: 'DELETE',
         })
             .then(result => {

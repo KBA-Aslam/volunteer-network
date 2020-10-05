@@ -18,7 +18,7 @@ function Registry() {
         console.log('form submitted', data)
           const registryDetails = {...loggedInUser, registry: data, date: new Date()}
     
-          fetch('http://localhost:4200/registry', {
+          fetch('https://volunteer-network-kba.herokuapp.com/registry', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

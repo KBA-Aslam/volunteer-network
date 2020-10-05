@@ -3,9 +3,10 @@ import FakeData from '../../FakeData/FakeData';
 
 function Inventory() {
 
+    
     const handleAddService = () => {
         // const service = {};
-        fetch('http://localhost:4200/addService', {
+        fetch('https://volunteer-network-kba.herokuapp.com/addService', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
