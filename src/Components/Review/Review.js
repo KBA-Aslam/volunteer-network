@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
+import image from '../../logos/volImg.png';
 
 function Review() {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -9,13 +10,14 @@ function Review() {
    
     const history = useHistory();
 
+
     const review=()=>{
         fetch(`https://volunteer-network-kba.herokuapp.com/review?email=${loggedInUser.email}`, {
             method: 'GET'
         })
             .then(res => res.json())
             .then(data => {
-                setTotalWork(data.limit)
+                setTotalWork(data)
                     }, [])
 
     }
@@ -32,7 +34,7 @@ function Review() {
                 }
             })
     }
-
+    console.log(totalWork);
     return (
         <div>
             <Header></Header>
@@ -43,14 +45,12 @@ function Review() {
                             <div className="col-6 shadow p-3 mb-5 bg-white rounded">
                                 <div className="row">
                                     <div className="col-5">
-                                        <img src={work.image} className="img-fluid" alt="" />
+                                        <img src={image} className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-7">
-                                        <h3>{work.name}
-                                            <br />
-                                            {work.date}
-                                        </h3>
-                                        <button onClick={deletework} className="btn btn-danger">Delete</button>
+                                        <h3>{work.registry.organize}</h3>
+                                        <h4>{work.registry.date}</h4>
+                                        <button style={{marginTop: "50px"}} onClick={deletework} className="btn btn-danger">Delete</button>
                                     </div>
                                 </div>
                             </div>)

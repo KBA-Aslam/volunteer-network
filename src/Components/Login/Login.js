@@ -42,12 +42,12 @@ function Login() {
     }
 
     return (
-        <div className="body">
+        <div className="login-body">
             <img src={logo} alt="logo"></img>
             <div className=" d-flex align-items-center login-box">
                 <div className="">
                 <h4>Login with</h4>
-                <button className='login-btn d-flex align-items-center justify-content-between' onClick={handleGoogleSignIn}><img style={{width: "31px", height: "31px"}} src={ggl} alt="google"></img>Continue with Google</button>
+                <button className='login-btn d-flex align-items-center justify-content-between btn btn-outline-primary' onClick={handleGoogleSignIn}><img style={{width: "31px", height: "31px"}} src={ggl} alt="google"></img>Continue with Google</button>
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ import Registry from './Components/Registry/Registry';
 import Review from './Components/Review/Review';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Admin from './Components/Admin/Admin';
+import Event from './Components/Event/Event';
 
 export const UserContext = createContext();
 
@@ -45,9 +46,12 @@ function App() {
           <Route path="/review">
           <Review></Review>
           </Route>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
           <Admin></Admin>
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute path="/event">
+          <Event></Event>
+          </PrivateRoute>
         </Switch>
       </Router>
     </div>

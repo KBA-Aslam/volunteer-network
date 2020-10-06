@@ -22,7 +22,7 @@ function Header() {
                 <Link className="nav-link text-dark" to="donate">Donation</Link>
                 <Link className="nav-link text-dark" to="blog">Blog</Link>
                 <Link  className="nav-link text-dark" to="event">Event</Link>
-                <Link to="login" className="nav-link text-dark">
+                <Link to="registry" className="nav-link text-dark">
                     <button type="button" className="btn btn-primary">Registration</button>
                 </Link>
                 <Link to="admin" className="nav-link text-dark">

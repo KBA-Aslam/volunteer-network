@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from './../../logos/logo.png'
 import plus from '../../logos/plus.png'
+import user from '../../logos/users.png'
+import dlt from '../../logos/trash.png'
+
 const Admin = () => {
     const [students, setStudent] = useState([])
     const loadAllMember = () => {
@@ -15,11 +18,11 @@ const Admin = () => {
     }
     useEffect(() => {
         loadAllMember()
-    }, [])
+    }, [students])
 
     const deleteItem = (id) => {
         fetch(`https://volunteer-network-kba.herokuapp.com/delete/${id}`, {
-            method: 'DELETE',
+            method: 'DELETE'
         })
             .then(result => {
                 if (result) {
@@ -32,21 +35,21 @@ const Admin = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light ">
                 <NavLink to="/home">
-                    <img className="nav-logo" src={logo} alt="" />
+                    <img style={{ width: "250px", height: "80px"}} src={logo} alt="" />
                 </NavLink>
                 <div className="collapse navbar-collapse" >
 
                     <ul>
-                        <h5> Volunteer register list</h5>
+                        <h5 style={{marginLeft: "160px"}}>Registered Volunteer list</h5>
                     </ul>
                 </div>
             </nav>
             <div className="container">
                 <div className="row">
                     <div className="col-2">
-                        <NavLink activeClassName="selected" to='/register'><span>  Volunteer register list</span></NavLink>
+                        <NavLink activeClassName="selected" to='/admin'><img src={user} style={{ width: '20px' }} alt="" /><span>Registered Volunteer list</span></NavLink>
                         <br />
-                        <NavLink activeClassName="selected" to='/addEvent'><img src={plus} style={{ width: '17px' }} alt="" /><span> Add event</span></NavLink>
+                        <NavLink activeClassName="selected" to='/event'><img src={plus} style={{ width: '20px' }} alt="" /><span> Add event</span></NavLink>
                     </div>
                     <div className="col-2">
 
@@ -58,18 +61,16 @@ const Admin = () => {
                                     <th scope="col">Name</th>
                                     <th scope="col">Email id</th>
                                     <th scope="col">Registration date</th>
-                                    <th scope="col">Volunteer list</th>
-                                    <th scope="col">action</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                       students.map(member => <tr>
-                                        <td>{member.name}</td>
-                                        <td>{member.email}</td>
-                                        <td>{member.date}</td>
-                                        <td>{member.workName}</td>
-                                        <td><button class="btn btn-danger" onClick={() => deleteItem(member._id)}>delete</button></td>
+                                        <td>{member.registry.name}</td>
+                                        <td>{member.registry.email}</td>
+                                        <td>{member.registry.date}</td>
+                                        <td><button class="btn btn-danger" onClick={() => deleteItem(member._id)}><img src={dlt} style={{ width: '25px' }} alt="" /></button></td>
                                        </tr>
                                       )}
                             </tbody>
